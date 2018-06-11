@@ -62,7 +62,7 @@ $wp_query = $my_search_object->query();
 <div class="movies-list-wrap mlw-category">
 
 <div class="ml-title ml-title-page">
-<span><?php _e('All Movies', 'psythemes'); ?></span>
+<span><?php _e('Phim Lẻ', 'psythemes'); ?></span>
 <div class="filter-toggle" style="display:none;"><i class="fa fa-sort mr5"></i><?php _e('Filter', 'psythemes'); ?></div>
 <div class="clearfix"></div>
 </div>

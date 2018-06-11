@@ -6,11 +6,11 @@ $postnum = get_option('slider_num');
 $catquery = new WP_Query( 'cat='.$cat.'&showposts='.$postnum.'&posts_per_page='.$postnum.'' );
 while($catquery->have_posts()) : $catquery->the_post(); ?>
 <?php   if (has_post_thumbnail()) {
-$imgsrc = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID),'medium');
+$imgsrc = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID),'full');
 $imgsrc = $imgsrc[0];
 } elseif ($postimages = get_children("post_parent=$post->ID&post_type=attachment&post_mime_type=image&numberposts=0")) {
 foreach($postimages as $postimage) {
-$imgsrc = wp_get_attachment_image_src($postimage->ID, 'medium');
+$imgsrc = wp_get_attachment_image_src($postimage->ID, 'full');
 $imgsrc = $imgsrc[0];
 }
 } elseif (preg_match('/<img [^>]*src=["|\']([^"|\']+)/i', get_the_content(), $match) != FALSE) {
@@ -55,11 +55,11 @@ $year = date ("Y"); query_posts(array(('release-year') => $year, 'posts_per_page
 $img = get_template_directory_uri() . '/images/no_img.png';
     $imgsrc = $img;
 if (has_post_thumbnail()) {
-$imgsrc = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID),'medium');
+$imgsrc = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID),'full');
 $imgsrc = $imgsrc[0];
 } elseif ($postimages = get_children("post_parent=$post->ID&post_type=attachment&post_mime_type=image&numberposts=0")) {
 foreach($postimages as $postimage) {
-$imgsrc = wp_get_attachment_image_src($postimage->ID, 'medium');
+$imgsrc = wp_get_attachment_image_src($postimage->ID, 'full');
 $imgsrc = $imgsrc[0];
 }
 } elseif (preg_match('/<img [^>]*src=["|\']([^"|\']+)/i', get_the_content(), $match) != FALSE) {
